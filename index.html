@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button onclick="changeFontSize('aumentar')">Aumentar</button>
+<button onclick="changeFontSize('reduzir')">Reduzir</button><script>
+function changeFontSize(action){
+const elements = ['h1', 'p','h2'];
+elements.map(element=>{
+
+const selector = document.querySelector(element);
+let value = getComputedStyle(selector).getPropertyValue('font-size');
+value = value.replace('px', '');
+value = action === 'aumentar' ? parseInt(value) + 1 : parseInt(value) - 1;
+selector.style.fontSize = `${value}px`;
+})
+}
+</script>
     <header>
         <div class="logo">
             <img src="LOGO.png" alt="Logo dO AIRBNB">
